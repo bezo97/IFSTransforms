@@ -1,0 +1,13 @@
+@Name: Gaussian Blur
+@Version: 1.0
+@Description: Gaussian distribution using the Box-Muller transform. Use with Add=1.
+@Reference: https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform
+@Tags: blur
+
+@Radius: 1.0
+
+float r = @Radius * sqrt(-2.0*log(random(next)));
+float z = 2.0 * random(next) - 1.0;
+float th = 2.0 * PI * random(next) - PI;
+float za = sqrt(1.0-z*z);
+return r * vec3(za*cos(th), za*sin(th), z);

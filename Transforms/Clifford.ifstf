@@ -1,0 +1,16 @@
+@Name: Clifford
+@Version: 1.0
+@Description: Clifford attractor.
+@Reference: http://paulbourke.net/fractals/clifford/
+
+@A: -1.4
+@B: 1.0
+@C: 1.6
+@D: 0.7
+@E: 1.0
+@F: 1.0
+
+return vec3(
+	sin(@A*p.y) + @B * cos(@A*p.x),
+	sin(@C*p.z) + @D * cos(@C*p.y),
+	sin(@E*p.x) + @F * cos(@E*p.z));

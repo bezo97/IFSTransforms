@@ -1,0 +1,11 @@
+@Name: Affine
+@Version: 1.1
+@Translate: 0 0 0
+@Scale: 1 1 1
+@Rotate: 0 0 0
+
+mat3 scale = mat3(1.0);
+scale[0][0] = @Scale.x;
+scale[1][1] = @Scale.y;
+scale[2][2] = @Scale.z;
+return @Translate + p * rotate_euler(@Rotate * DEGTORAD) * scale;

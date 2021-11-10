@@ -1,9 +1,0 @@
-@Name: Translate
-@Version: test
-
-@TranslateX: 0.0
-@TranslateY: 0.0
-@TranslateZ: 0.0
-vec3 translation = vec3(@TranslateX, @TranslateY, @TranslateZ);
-
-return p + translation;

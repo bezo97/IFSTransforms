@@ -1,0 +1,12 @@
+@Name: Mira
+@Version: 1.0
+@Description: From the Gumowski-Mira equation, which is used in CERN to calculate the trajectories of sub-atomic particles.
+@Reference: http://2008.sub.blue/blog/2008/9/25/gumowski-mira_patterns.html
+@Tags: 2d, attractor
+
+@A: 0.5
+@B: -0.1
+
+float pxn = p.y + @A*(1.0-@B*p.y*p.y) + (@A*p.x+(2.0*(1.0-@A)*p.x*p.x)/(1.0+p.x*p.x));
+float pyn = -p.x + (@A*pxn+(2.0*(1.0-@A)*pxn*pxn)/(1.0+pxn*pxn));
+return vec3(pxn, pyn, p.z);

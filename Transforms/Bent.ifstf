@@ -1,0 +1,7 @@
+@Name: Bent
+@Version: 1.0
+@Description: Based on the flame variation.
+@Reference: https://flam3.com/flame_draves.pdf
+
+vec3 a = vec3(2.0*p.x, p.y/2.0, 2.0*p.z);
+return mix(p, a, lessThan(p, vec3(0.0)));

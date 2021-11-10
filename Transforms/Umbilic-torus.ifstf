@@ -1,0 +1,12 @@
+@Name: Umbilic torus
+@Version: 1.0
+@Reference: https://en.wikipedia.org/wiki/Umbilic_torus
+@Tags: shape
+
+float u = -PI + TWOPI * random(next);
+float v = -PI + TWOPI * random(next);
+float a = 7.0 + cos(u/3.0-2.0*v) + 2.0*cos(u/3.0+v);
+return vec3(
+	sin(u) * a,
+	cos(u) * a,
+	sin(u/3.0-2.0*v) + 2.0*sin(u/3.0+v));

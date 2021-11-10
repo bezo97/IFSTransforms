@@ -1,0 +1,8 @@
+@Name: Cube
+@Version: 1.1
+@Tags: shape
+
+return vec3(
+	0.5 - random(next),
+	0.5 - random(next),
+	0.5 - random(next));

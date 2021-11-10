@@ -1,0 +1,14 @@
+@Name: Ikeda
+@Version: 1.0
+@Reference: https://en.wikipedia.org/wiki/Ikeda_map
+@Tags: 2d
+
+@U: 0.6
+
+float t = 0.4 - 6.0 / (1.0 + p.x*p.x+p.y*p.y);
+float sin_t = sin(t);
+float cos_t = cos(t);
+return vec3(
+	1.0 + @U * (p.x * cos_t - p.y * sin_t),
+	@U * (p.x * sin_t + p.y * cos_t),
+	p.z);

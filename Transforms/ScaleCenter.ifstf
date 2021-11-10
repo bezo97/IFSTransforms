@@ -1,0 +1,6 @@
+@Name: Scale Center
+@Version: 1.0
+
+@Scale: 1.0
+@Center: 0 0 0
+return (p - @Center) * @Scale + @Center;

@@ -1,0 +1,4 @@
+@Name: Sinusoidal
+@Version: 1.0
+@Description: A simple sine, same as in flame.
+return sin(p);

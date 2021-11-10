@@ -1,0 +1,7 @@
+@Name: Rotate Euler
+@Description: 3d rotation with euler angles.
+@Version: 1.0
+
+@EulerAngles: 0 0 0
+
+return rotate_euler(@EulerAngles * DEGTORAD) * p;

@@ -1,0 +1,14 @@
+@Name: Tinkerbell
+@Version: 1.0
+@Reference: https://en.wikipedia.org/wiki/Tinkerbell_map
+@Tags: 2d, attractor
+
+@A: 0.9
+@B: -0.6013
+@C: 2.0
+@D: 0.5
+
+return vec3(
+	p.x*p.x-p.y*p.y+@A*p.x+@B*p.y,
+	2.0*p.x*p.y+@C*p.x+@D*p.y,
+	p.z);

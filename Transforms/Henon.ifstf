@@ -1,0 +1,11 @@
+@Name: Hénon
+@Version: 1.0
+@Description: A 3D version of the Hénon map, based on the paper 'A New Key Stream Generator Based on 3D Henon map and 3D Cat map'
+
+@A: 1.76
+@B: 0.1
+
+return vec3(
+	@A - p.y*p.y - @B * p.z,
+	p.x,
+	p.y);

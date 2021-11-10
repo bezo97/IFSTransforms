@@ -1,0 +1,8 @@
+@Name: Grid points
+@Version: 1.0
+
+@gridsize: 1
+@spread: 1
+
+vec3 block = floor(@spread * p/@gridsize + vec3(0.5));
+return @gridsize * block;

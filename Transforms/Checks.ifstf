@@ -1,0 +1,14 @@
+@Name: Checks
+@Version: 1.1
+@Description: Based on the Apophysis variation by Xyrus, but without the randomness parameter.
+@Reference: https://sourceforge.net/p/apophysis7x/svn/HEAD/tree/tags/16/Plugin/checks.c
+
+@Size: 1
+@Offset: 1 1 1
+
+vec3 checks = floor(p * @Size + vec3(0.5));
+float checked = checks.x + checks.y + checks.z;
+if(mod(checked, 2.0) != 0.0)
+	return p - @Offset;
+else
+	return p + @Offset;

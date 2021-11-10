@@ -1,0 +1,12 @@
+@Name: Lozi
+@Version: 1.0
+@Reference: http://padyn.wikidot.com/lozi-maps
+@Tags: 2d, attractor
+
+@A: 1.0
+@B: 0.75
+
+return vec3(
+	1.0 - @A*abs(p.x) - @B * p.y,
+	p.x,
+	p.z);

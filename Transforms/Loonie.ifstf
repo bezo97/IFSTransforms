@@ -1,0 +1,12 @@
+@Name: Loonie
+@Version: 1.0
+
+@Radius: 1
+@Strength: 1
+
+float r2 = @Radius * @Radius;
+float p2 = dot(p, p);
+float r = 1.0;
+if (p2 < r2)
+	r = sqrt(r2 / p2 - @Strength);
+return r * p;

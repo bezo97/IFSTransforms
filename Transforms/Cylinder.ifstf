@@ -1,0 +1,8 @@
+@Name: Cylinder
+@Version: 1.0
+@Description: Unlike the flame variation, this does not use sin()
+
+@Radius: 1
+
+float r = 0.5 + 0.5 * dot(p.xz, p.xz) / @Radius;
+return p / vec3(r, 1.0 , r);

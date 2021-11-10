@@ -1,0 +1,17 @@
+@Name: pdj
+@Version: 1.0
+@Description: Peter De Jong attractor extended to 3d.
+@Reference: http://paulbourke.net/fractals/peterdejong/
+
+@A: -2.7
+@B: -0.09
+@C: -0.86
+@D: -2.2
+@E: 1.0
+@F: 1.0
+
+return vec3(
+	sin(@A*p.y) - cos(@B*p.x),
+	sin(@C*p.z) - cos(@D*p.y),
+	sin(@E*p.x) - cos(@F*p.z));
+

@@ -1,0 +1,7 @@
+@Name: Horseshoe
+@Version: 1.0
+@Reference: https://flam3.com/flame_draves.pdf
+@Tags: 2d
+
+float r = length(p);
+return 1.0/r * vec3((p.x-p.y)*(p.x+p.y), 2.0*p.x*p.y, p.z);

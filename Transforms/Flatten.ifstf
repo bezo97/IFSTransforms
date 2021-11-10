@@ -1,0 +1,6 @@
+@Name: Flatten
+@Version: 1.0
+@Description: Use this along 2d tranforms to flatten the fractal on the Z-axis.
+@Tags: 2d
+
+return vec3(p.x, p.y, 0.0);

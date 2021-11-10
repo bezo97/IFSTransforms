@@ -1,0 +1,13 @@
+@Name: Hopalong
+@Version: 1.0
+@Description: A.k.a. Martin map. Use with Mix<1 for glitch-style stuff.
+@Tags: attractor, 2d
+
+@A: 2.0
+@B: 10.0
+@C: 4.0
+
+return vec3(
+	p.y - sign(p.x) * sqrt(abs(@B*p.x-@C)),
+	@A - p.x,
+	p.z);

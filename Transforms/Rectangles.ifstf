@@ -1,0 +1,10 @@
+@Name: Rectangles
+@Version: 1.1
+@Description: Based on the flame variation with the same name. Great for glitch-style.
+@Reference: https://flam3.com/flame_draves.pdf
+
+@Size: 1 1 1
+
+vec3 a = 2.0 * floor(p / @Size + vec3(1.0)) * @Size - p;
+bvec3 cond = notEqual(@Size, vec3(0.0));
+return mix(p, a, cond);

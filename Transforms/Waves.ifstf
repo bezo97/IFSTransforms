@@ -1,0 +1,9 @@
+@Name: Waves
+@Version: 1.1
+@Tags: gnarl
+
+@Mult: 0.99
+@Scale: 0.02 0.02 0.02
+@Freq: 10 10 5
+
+return @Mult * fma(@Scale, sin(p.yzx * @Freq), p);

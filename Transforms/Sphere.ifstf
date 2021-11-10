@@ -1,0 +1,13 @@
+@Name: Sphere
+@Version: 1.0
+@Description: Set Fill=0 for a hollow sphere.
+@Tags: shape
+
+@Radius: 1.0
+@Fill: 0
+
+float r = mix(@Radius, @Radius*pow(random(next),1.0/3.0), @Fill);
+float z = 2.0 * random(next) - 1.0;
+float th = 2.0 * PI * random(next) - PI;
+float za = sqrt(1.0-z*z);
+return r * vec3(za*cos(th), za*sin(th), z);
