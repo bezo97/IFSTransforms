@@ -1,6 +1,7 @@
 @Name: Crop Cuboid
 @Version: 1.0
 @Description: Crop into a cuboid defined by min and max XYZ values, select visibility of inside, faces, edges (by Rychveldir)
+@Tags: crop
 
 @Faces: 0
 @Edges: 0
