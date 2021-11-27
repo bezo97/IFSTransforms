@@ -1,5 +1,6 @@
 @Name: Crop Cylinder
 @Version: 1.1
+@Tags: crop
 @Description: Crop into a cylinder with the rotational axis along the Z axis, select visibility of inside, surface and edges (by Rychveldir)
 
 @Hull: 0
