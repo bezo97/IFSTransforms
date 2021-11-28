@@ -7,14 +7,14 @@
 @Inside: 1
 @Radius: 1
 
-float nx = 0;
-float ny = 0;
-float nz = 0;
-float ec = 0;
 float r = length(p);
 
 if (r > @Radius) {
   if (random(next) < @Hull) {p = @Radius*p/r;} else {return vec3(1./0.);}
+}
+
+if (r < @Radius) {
+  if (random(next) < @Inside) {return p;} else {return vec3(1./0.);}
 }
 
 return p;
