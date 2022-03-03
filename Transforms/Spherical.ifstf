@@ -1,7 +1,8 @@
 @Name: Spherical
-@Version: 1.0
-@Description: Similar to the flame variation, but with an additional offset parameter.
+@Version: 1.1
+@Description: Similar to the flame variation, but with an additional offset and radius parameters.
 
 @Offset: 0
+@Radius: 1
 
-return p / (dot(p, p) + @Offset);
+return p / (@Radius * dot(p, p) + @Offset);
