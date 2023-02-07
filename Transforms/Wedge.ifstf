@@ -1,0 +1,16 @@
+@Name: Wedge
+@Version: 1.0
+@Description: same as in Apophysis, variation originally created by Joel & Michael Faber
+
+@Count: 1
+@Angle: 1.570796
+@Hole: 0.0
+@Swirl: 0.0
+
+float r = length(p);
+float a = atan(p.y, p.x) + @Swirl * r;
+float c = floor(@Count * a * 0.15915494 + 0.5);
+float comp = 1.0 - @Angle * @Count * 0.15915494;
+float alpha = a * comp + c * @Angle;
+float new_weight = r + @Hole;
+return vec3(cos(alpha), sin(alpha), p.z) * new_weight;

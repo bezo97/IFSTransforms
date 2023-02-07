@@ -1,0 +1,18 @@
+@Name: Lorenz
+@Version: 1.0
+@Description: The Lorenz Attractor, default paramaters set to produce the iconic butterfly shape
+
+@Sigma: 10
+@Rho: 28
+@Beta: 2.66666666666667
+@Scale: 1
+
+p = p * @Scale;
+
+float nx = p.x + 0.001 * @Sigma*(p.y-p.x);
+float ny = p.y + 0.001 * (p.x * (@Rho - p.z) - p.y);
+float nz = p.z + 0.001 * (p.x*p.y - @Beta*p.z);
+
+p = p / @Scale;
+
+return vec3(nx, ny, nz);

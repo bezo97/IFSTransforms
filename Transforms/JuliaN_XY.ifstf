@@ -1,0 +1,18 @@
+@Name: JuliaNxy
+@Version: 1.1
+@Description: JuliaN as in Apophysis and Chaotica, working on X and Y, allowing to scale along Z
+
+@Power: 2
+@Y_scale: 1
+@Distance: 1
+
+float p3 = trunc(abs(@Power)*random(next));
+float arg = atan(p.x, p.y);
+float t = (arg + 2*3.1415926535897932*p3)/@Power;
+float r = pow(sqrt(pow(p.x, 2) + pow(p.y, 2)), @Distance/@Power);
+
+p.x = r * cos(t);
+p.y = r * sin(t);
+p.z = p.z * @Y_scale;
+
+return p;
