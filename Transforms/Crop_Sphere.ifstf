@@ -1,5 +1,5 @@
 @Name: Crop Sphere
-@Version: 1.0
+@Version: 1.1
 @Tags: crop
 @Description: Crop into a sphere, select visibility of inside and surface (by Rychveldir)
 
@@ -10,7 +10,11 @@
 float r = length(p);
 
 if (r > @Radius) {
-  if (random(next) < @Hull) {p = @Radius*p/r;} else {return vec3(1./0.);}
+  if (random(next) < @Hull) {p = @Radius*p/r;} else {return discarded_point;}
+}
+
+if (r < @Radius) {
+  if (random(next) < @Inside) {return p;} else {return discarded_point;}
 }
 
 if (r < @Radius) {

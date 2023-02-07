@@ -1,5 +1,5 @@
 @Name: Crop Cuboid
-@Version: 1.0
+@Version: 1.1
 @Description: Crop into a cuboid defined by min and max XYZ values, select visibility of inside, faces, edges (by Rychveldir)
 @Tags: crop
 
@@ -9,53 +9,28 @@
 @Min: -1 -1 -1
 @Max: 1 1 1
 
-float nx = 0;
-float ny = 0;
-float nz = 0;
+vec3 n = clamp(p, @Min, @Max);
 float ec = 0;
 
-// check each coordinate to see if it's inside or outside
-if (p.x > @Max.x) {nx = @Max.x;} else {
-  if (p.x < @Min.x) {nx = @Min.x;} else {
-    nx = p.x;
-  }
-}
-if (p.y > @Max.y) {ny = @Max.y;} else {
-  if (p.y < @Min.y) {ny = @Min.y;} else {
-    ny = p.y;
-  }
-}
-if (p.z > @Max.z) {nz = @Max.z;} else {
-  if (p.z < @Min.z) {nz = @Min.z;} else {
-    nz = p.z;
-  }
-}
-
-
 //check if the vector falls on an edge or corner:
-if (nx == @Max.x) {ec += 1;}
-if (nx == @Min.x) {ec += 1;}
-if (ny == @Max.y) {ec += 1;}
-if (ny == @Min.y) {ec += 1;}
-if (nz == @Max.z) {ec += 1;}
-if (nz == @Min.z) {ec += 1;}
-
-//fade inside
-if (ec == 0) {
-  if (random(next) > @Inside) {nx = 1./0.;}
-}
-
-//fade faces
-if (ec == 1) {
-  if (random(next) > @Faces) {nx = 1./0.;}
-}
-
-//fade edges
-if (random(next) > @Edges) {
-  if (ec > 1) {nx = 1./0.;}
-}
+if (n.x == @Max.x) {ec += 1;}
+if (n.x == @Min.x) {ec += 1;}
+if (n.y == @Max.y) {ec += 1;}
+if (n.y == @Min.y) {ec += 1;}
+if (n.z == @Max.z) {ec += 1;}
+if (n.z == @Min.z) {ec += 1;}
 
 //remove corner points
-if (ec > 2) {nx = 1./0.;}
+if (ec > 2)
+	return discarded_point;
 
-return vec3(nx, ny, nz);
+float fade_prob = random(next);
+
+if (ec == 0 && fade_prob > @Inside) //fade inside
+	return discarded_point;
+else if (ec == 1 && fade_prob > @Faces) //fade faces
+	return discarded_point;
+else if (ec > 1 && fade_prob > @Edges) //fade edges
+	return discarded_point;
+
+return n;

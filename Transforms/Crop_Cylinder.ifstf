@@ -1,5 +1,5 @@
 @Name: Crop Cylinder
-@Version: 1.1
+@Version: 1.2
 @Tags: crop
 @Description: Crop into a cylinder with the rotational axis along the Z axis, select visibility of inside, surface and edges (by Rychveldir)
 
@@ -21,24 +21,24 @@ if (r > @Radius) {
     p.x = @Radius*p.x/r;
     p.y = @Radius*p.y/r;
     ec += 1;
-  } else {return vec3(1./0.);}
+  } else {return discarded_point;}
 }
 
 if (p.z > @Zmax) {
   if (random(next) < @Hull) {
     p.z = @Zmax;
     ec += 1;
-  } else {return vec3(1./0.);}
+  } else { return discarded_point; }
 }
+
 if (p.z < @Zmin) {
   if (random(next) < @Hull) {
     p.z = @Zmin;
     ec += 1;
-  } else {return vec3(1./0.);}
+  } else { return discarded_point; }
 }
 
-if (ec > 1) {
-  if (random(next) > @Edge) {return vec3(1./0.);}
-}
+if (ec > 1 && random(next) > @Edge)
+	return discarded_point;
 
 return p;
