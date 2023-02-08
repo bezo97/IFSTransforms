@@ -1,0 +1,11 @@
+@Name: Scry
+@Version: 1.0
+@Description: Analogous to Scry in Chaotica, but 3D
+
+@Scale: 1
+
+float r2 = dot(p, p);
+float r = sqrt(r2);
+float s = 1 / (r * (r2 + @Scale));
+
+return s * p;
