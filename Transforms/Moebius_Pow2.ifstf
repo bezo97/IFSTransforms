@@ -1,0 +1,11 @@
+@Name: Möbius Pow2
+@Version: 1.0
+@Description: This is a supplement to the Möbius transform to support cases where epsilon is 2.
+@Reference: https://en.wikipedia.org/wiki/M%C3%B6bius_transformation#Higher_dimensions
+
+@Alpha: 1
+@A: 0 0 0
+@B: 0 0 0
+@R: 0 0 0
+
+return @B + (@Alpha * rotate_euler(@R * DEGTORAD) * (p - @A)) / pow(length(p - @A), 2.0);
