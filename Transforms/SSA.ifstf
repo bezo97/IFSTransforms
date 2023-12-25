@@ -1,0 +1,29 @@
+@Name: SSA
+@Version: 1.0
+@Description: Spherical Strange Attractor formula by Aexion.
+@Tags: spherical, strange, attractor, Aexion
+@Reference: https://www.rfractals.net/strangesphere
+
+@RadialPower: 1.0
+@Alpha: 0.82440102
+@Beta: 0.06804633
+@Gamma: -0.49370503
+@Delta: 3
+@Lambda: -0.78609264
+@Power: 4
+
+float RadialFn = pow(dot(p, p), @RadialPower);
+float AngleXY = atan(p.y, p.x) * @Power;
+float AngleZ = atan(length(p.xy), p.z) * @Power;
+float Radius = pow(RadialFn, @Power);
+float SinAngleZ = sin(AngleZ) * Radius;
+float CosXY = cos(AngleXY) * SinAngleZ;
+float SinXY = sin(AngleXY) * SinAngleZ;
+float CosAngleZ = cos(AngleZ) * Radius;
+float FnXYZ = p.x * CosXY - p.y * SinXY - p.z * CosAngleZ;
+float ParXYZ = @Lambda * @Delta + @Alpha * RadialFn * @Delta + @Beta * FnXYZ * @Delta;
+return vec3(
+	ParXYZ * p.x + @Gamma * CosXY * @Delta,
+	ParXYZ * p.y - @Gamma * SinXY * @Delta,
+	ParXYZ * p.z - @Gamma * CosAngleZ * @Delta
+);
