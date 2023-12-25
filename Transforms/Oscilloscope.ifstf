@@ -1,0 +1,16 @@
+@Name: Oscilloscope
+@Version: 1.0
+@Description: Based on the Apophysis variation by Michael Faber. Great for glitch-style fractals.
+@Reference: https://sourceforge.net/p/apophysis7x/svn/HEAD/tree/tags/16/Plugin/oscilloscope.c
+@Tags: glitch
+
+@Separation: 1
+@Frequency: 3.14159
+@Amplitude: 1
+@Damping: 0
+
+float t = @Amplitude*exp(-length(p.xz)*@Damping)*cos(TWOPI*@Frequency*length(p.xz)) + @Separation;
+if(abs(p.y) <= t)
+	return vec3(p.x, -p.y, p.z);
+else
+	return p;
